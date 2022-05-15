@@ -11,7 +11,7 @@ def imread(path, mode="RGB"):
     return img
     
 
-def imresize(img, size, interp='bilinear'):
+def imresize(img, size, interp='bilinear', readmode='RGB'):
     """
     Resizes an image
 
@@ -31,7 +31,7 @@ def imresize(img, size, interp='bilinear'):
     size = (size[1], size[0])
 
     if type(img) != Image:
-        img = Image.fromarray(img, mode='RGB')
+        img = Image.fromarray(img, mode=readmode)
 
     img = np.array(img.resize(size, interpolation))
     return img
