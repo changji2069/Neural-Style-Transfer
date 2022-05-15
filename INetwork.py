@@ -266,7 +266,7 @@ def load_mask(mask_path, shape, return_mask_img=False):
         _, width, height, channels = shape
 
     mask = imread(mask_path, mode="L") # Grayscale mask load
-    mask = imresize(mask, (width, height)).astype('float32')
+    mask = imresize(mask, (width, height), readmode='L').astype('float32')
 
     # Perform binarization of mask
     mask[mask <= 127] = 0
